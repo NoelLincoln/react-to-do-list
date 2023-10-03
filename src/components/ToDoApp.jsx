@@ -5,8 +5,12 @@ import TodosLogic from './ToDosLogic';
 const TodoApp = () => {
   return (
     <>
-      <Header />
-      <TodosLogic />
+      <div className="wrapper">
+        <div className="todos">
+          <Header />
+          <TodosLogic />
+        </div>
+      </div>
     </>
   );
 };
