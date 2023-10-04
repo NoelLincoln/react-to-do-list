@@ -4,11 +4,7 @@ import TodosList from './TodosList';
 import { v4 as uuidv4 } from 'uuid';
 
 const TodosLogic = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: uuidv4(),
-    },
-  ]);
+  const [todos, setTodos] = useState([]);
   const handleChange = (id) => {
     setTodos((prevState) =>
       prevState.map((todo) => {
@@ -37,7 +33,19 @@ const TodosLogic = () => {
       title: title,
       completed: false,
     };
+    
     setTodos([...todos, newTodo]);
+  };
+
+  const setUpdate = (updatedTitle, id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.title = updatedTitle;
+        }
+        return todo;
+      })
+    );
   };
 
   return (
@@ -48,7 +56,7 @@ const TodosLogic = () => {
         setTodos={setTodos}
         handleChange={handleChange}
         delTodo={delTodo}
-        addTodoItem={addTodoItem}
+        setUpdate={setUpdate}
       />
     </div>
   );
