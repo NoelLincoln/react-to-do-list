@@ -110,7 +110,7 @@ Install this project with:
 To run the project run :
 
 ```sh
-  npm start
+  npm run dev
 ```
 
 Runs the app in the development mode.
